@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="emedrandaS3Taller1.Views.SalidaDatos"
+             Title="SalidaDatos">
+    <!-- Estilos EXPLÍCITOS (requisito Vista 2) -->
+    <ContentPage.Resources>
+        <Style x:Key="TitleStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#111827" />
+        </Style>
+        <Style x:Key="FieldStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#1F2937" />
+        </Style>
+        <Style x:Key="ExportButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#10B981" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="Margin" Value="0,20,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="8" HorizontalOptions="Center">
+
+            <Image Source="credencial.png"
+               HeightRequest="160"
+               Aspect="AspectFit"
+               Margin="0,10,0,20"
+               HorizontalOptions="Center" />
+
+            <Label Text="Datos del Contacto" Style="{StaticResource TitleStyle}" />
+
+            <Label x:Name="lblTipo"      Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblNumero"    Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblNombres"   Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblApellidos" Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblFecha"     Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblCorreo"    Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblSalario"   Style="{StaticResource FieldStyle}" />
+            <Label x:Name="lblIess"      Style="{StaticResource FieldStyle}" FontAttributes="Bold"/>
+
+            <Button Text="Exportar a .txt"
+                    Style="{StaticResource ExportButtonStyle}"
+                    Clicked="BtnExportar_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

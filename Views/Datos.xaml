@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="emedrandaS3Taller1.Views.Datos"
+             Title="Envío de datos">
+    <!-- Estilos implícitos (requisito Vista 1) -->
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#0F172A"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="#0F172A"/>
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#0F172A"/>
+            <Setter Property="BackgroundColor" Value="White" />
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="#0F172A"/>
+            <Setter Property="BackgroundColor" Value="White" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource BrandPrimary}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label Text="Identificación (Tipo)" FontAttributes="Bold"/>
+            <Picker x:Name="pkTipo"
+                    Title="Selecciona: CI / RUC / Pasaporte"
+                    SelectedIndexChanged="pkTipo_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>CI</x:String>
+                    <x:String>RUC</x:String>
+                    <x:String>Pasaporte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Campo CI (10 dígitos) -->
+            <Entry x:Name="txtCI" IsVisible="False" Keyboard="Numeric" Placeholder="Ej: 0102030405" TextChanged="DigitsOnly10_TextChanged"/>
+
+            <!-- Campo RUC (13 dígitos) -->
+            <Entry x:Name="txtRUC" IsVisible="False" Keyboard="Numeric" Placeholder="Ej: 1790012345001" TextChanged="DigitsOnly13_TextChanged"/>
+
+            <!-- Campo Pasaporte (libre) -->
+            <Entry x:Name="txtPasaporte" IsVisible="False" Placeholder="ABC123456" />
+
+            <Label Text="Nombres" />
+            <Entry x:Name="txtNombres" Placeholder="Nombres" />
+
+            <Label Text="Apellidos" />
+            <Entry x:Name="txtApellidos" Placeholder="Apellidos" />
+
+            <Label Text="Fecha" />
+            <DatePicker x:Name="dpFecha" />
+
+            <Label Text="Correo" />
+            <Entry x:Name="txtCorreo" Placeholder="alguien@dominio.com" Keyboard="Email" />
+
+            <Label Text="Salario (USD)" />
+            <Entry x:Name="txtSalario" Placeholder="0.00" Keyboard="Numeric" />
+
+            <Button Text="Ver Resumen"
+                    Clicked="BtnResumen_Clicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
